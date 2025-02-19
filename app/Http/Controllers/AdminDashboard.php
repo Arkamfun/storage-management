@@ -19,6 +19,9 @@ class AdminDashboard extends Controller
         $arrPurchases = $purchases->toArray();
         $arrStoc_transactions = $stoc_transactions->toArray();
         $totalStock = $purchases->sum('quantity');
+        if (!isset(session()->all()['admin'])) {
+            return redirect()->route('login');
+        }
         return view('dashboard', [
             'title' => 'Dashboard',
             'purchases' => $arrPurchases,

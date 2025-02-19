@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminDashboard;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\purchasesController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Route;
@@ -30,6 +31,9 @@ Route::middleware(['auth:admin'])->group(function () {
     Route::post('/register', [AuthController::class, 'storeRegister']);
     Route::get('/logout', [AuthController::class, 'logout']);
     Route::post('/logout', [AuthController::class, 'logout']);
+    Route::get('/purchases', [purchasesController::class, 'index'])->name('purchases');
+    Route::get('/purchases/create', [purchasesController::class, 'create']);
+    Route::post('/purchases/create', [purchasesController::class, 'store']);
 });
 
 Route::get('/login', [AuthController::class, 'login'])->name('login');

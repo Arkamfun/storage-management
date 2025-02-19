@@ -38,6 +38,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('products') }}">products</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('purchases') }}">purchases</a>
+                        </li>
 
                         @if (!isset($session))
                             <li class="nav-item">
