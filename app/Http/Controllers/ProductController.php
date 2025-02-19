@@ -34,7 +34,6 @@ class ProductController extends Controller
         }
         $request->validate([
             'name' => 'required',
-            'stock' => 'required',
             'price' => 'required',
         ]);
         Products::create($request->all());
